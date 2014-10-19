@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="build/main" path="src/main"/>
+	<classpathentry kind="src" output="build/test" path="src/test"/>
+	<classpathentry kind="src" output="build/examples" path="src/examples"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jpf-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jpf-symbc"/>
+	<classpathentry kind="lib" path="lib/jpf-utils.jar"/>
+	<classpathentry kind="lib" path="/jpf-symbc/lib/com.microsoft.z3.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>
