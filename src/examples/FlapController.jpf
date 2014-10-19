@@ -1,0 +1,22 @@
+site=${jpf-bmc}../site.properties
+classpath=${jpf-bmc}/build/main;${jpf-bmc}/build/examples;${jpf-symbc}/build/examples
+
+target=FlapController
+
+symbolic.method=FlapController.startThreads(sym#sym#sym)
+
+symbolic.min_int=-100
+symbolic.max_int=100
+symbolic.undefined=100000
+
+search.depth_limit=10
+
+listener = uk.ac.qmul.bmc.BmcListenerUsingSmtlib2
+bmc.batch = 200
+
+symbolic.dp = no_solver
+search.multiple_errors = true
+
+z3=/home/qsp/Programs/z3/bin/z3
+
+

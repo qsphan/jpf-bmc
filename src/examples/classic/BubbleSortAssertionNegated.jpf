@@ -1,0 +1,13 @@
+site=${jpf-bmc}../site.properties
+classpath=${jpf-bmc}/build/main;${jpf-bmc}/build/examples;${jpf-symbc}/build/examples
+
+target=classic.BubbleSortAssertionNegated
+symbolic.method=classic.BubbleSortAssertionNegated.test(sym)
+
+listener = uk.ac.qmul.bmc.BMCListener
+bmc.batch = 200
+
+symbolic.dp = no_solver
+search.multiple_errors = true
+
+z3=/home/qsp/Programs/z3/bin/z3

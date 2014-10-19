@@ -1,0 +1,11 @@
+site=${jpf-bmc}../site.properties
+classpath=${jpf-bmc}/build/main;${jpf-bmc}/build/examples;${jpf-symbc}/build/examples
+
+target=svcomp14.SumArrayTrue
+symbolic.method=svcomp14.SumArrayTrue.sum(sym#sym#sym)
+
+#listener = uk.ac.qmul.bmc.BmcListenerUsingSmtlib2
+bmc.batch = 200
+
+symbolic.dp = no_solver
+search.multiple_errors = true

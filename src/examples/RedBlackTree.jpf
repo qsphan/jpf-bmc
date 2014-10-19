@@ -1,0 +1,17 @@
+target = rbt.TreeMap
+
+classpath = ${jpf-symbc}/build/examples
+
+sourcepath = ${jpf-symbc}/src/examples
+
+symbolic.method = rbt.TreeMap.genTreeS2_1(sym#sym),rbt.TreeMap.put(sym#con),TreeMap.remove(sym),TreeMap.get(sym)
+
+search.depth_limit = 50
+
+#listener = uk.ac.qmul.bmc.BmcListenerUsingSmtlib2
+bmc.batch = 200
+
+symbolic.dp = no_solver
+search.multiple_errors = true
+
+z3=/home/qsp/Programs/z3/bin/z3

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+CURDIR=`pwd`
+MERCURIALDIR="${CURDIR}/.."
+JPFDIR="${MERCURIALDIR}/jpf-core"
+SPFDIR="${MERCURIALDIR}/jpf-symbc"
+CP=""
+
+BUILDDIR=$CURDIR"/build"
+if [ ! -d "$BUILDDIR" ]; then
+    mkdir $BUILDDIR
+    mkdir $BUILDDIR'/main'
+    mkdir $BUILDDIR'/examples'
+fi
+
+## building JPF (if necessary)
+#(cd ${JPFDIR};
+#    ./bin/ant
+#)
+for x in `ls ${JPFDIR}/build/*.jar` 
+do
+    CP=${CP}:$x
+done
+
+## building SPF (if necessary)
+#(cd ${SPFDIR};
+#    ant
+#)
+for x in `ls ${SPFDIR}/build/*.jar` 
+do
+    CP=${CP}:$x
+done
+
+LIBSDIR=${CURDIR}/lib
+#### general jars
+for x in `ls ${LIBSDIR}/*.jar` 
+do
+     CP=${CP}:$x
+done
+
+find src/main -name "*.java" | \
+ xargs javac -g -cp $CP -d build/main
+
+find src/examples -name "*.java" | \
+ xargs javac -g -cp $CP -d build/examples
+
+jar cvf build/jpf-bmc.jar -C build/main .

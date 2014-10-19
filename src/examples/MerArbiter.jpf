@@ -1,0 +1,18 @@
+site=${jpf-bmc}../site.properties
+
+# The project MerArbiter should be put under jpf folder
+classpath=${jpf-bmc}/build/main;${jpf-bmc}/build/examples;${jpf-symbc}/build/examples;${jpf-home}/UMLStateMachines/bin
+
+symbolic.maxint=4
+symbolic.minint=0
+
+target=MerArbiter.MerArbiter
+symbolic.method=MerArbiter.MerArbiter.setUser1Input(sym#sym),MerArbiter.MerArbiter.setUser2Input(sym#sym)
+
+##listener = uk.ac.qmul.bmc.BmcListenerUsingSmtlib2
+bmc.batch = 200
+
+symbolic.dp = no_solver
+search.multiple_errors = true
+
+z3=/home/qsp/Programs/z3/bin/z3

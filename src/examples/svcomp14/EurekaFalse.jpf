@@ -1,0 +1,10 @@
+site=${jpf-bmc}../site.properties
+classpath=${jpf-bmc}/build/main;${jpf-bmc}/build/examples;${jpf-symbc}/build/examples
+
+target=svcomp14.EurekaFalse
+symbolic.method=svcomp14.EurekaFalse.test(sym#sym#sym#sym)
+
+bmc.batch = 200
+
+symbolic.dp = z3
+search.multiple_errors = false
